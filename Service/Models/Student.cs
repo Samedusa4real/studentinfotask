@@ -2,61 +2,27 @@
 {
     internal class Student
     {
-        public static int id;
-        private string _name;
-        public string Name {
-            get
-            {
-                return _name;
-            } 
-            set
-            {
-                if(value.Length> 3 && value.Length<15)
-                {
-                    value = _name;
-                }
-                else
-                {
-                    Console.WriteLine("Zehmet olmasa duzgun daxil edin");
-                }
-            } 
-        }
-        private string _surname;
-        public string SurName
+        private static int _id = 0;
+
+        public readonly int Id;
+
+        public string Name { get; set; }
+
+        public string SurName { get; set; }
+
+        public double Avarage { get; set; }
+
+
+
+        public Student()
         {
-            get
-            {
-                return _surname;
-            }
-            set
-            {
-                if (value.Length > 3 && value.Length < 15)
-                {
-                    value = _surname;
-                }
-                else
-                {
-                    Console.WriteLine("Zehmet olmasa duzgun daxil edin");
-                }
-            }
+            _id++;
+            Id= _id 
         }
-        private int _avarage;
-        public int Avarage {
-            get
-            {
-                return _avarage;
-            } 
-            set
-            {
-                if(value>0 && value <= 100)
-                {
-                    _avarage = value;
-                }
-                else
-                {
-                    Console.WriteLine("Zehmet olmasa duzgun daxil edin");
-                }
-            }
+
+        public override string ToString()
+        {
+            return $"{Name} {SurName}";
         }
     }
 }
